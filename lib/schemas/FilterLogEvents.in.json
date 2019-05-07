@@ -1,0 +1,106 @@
+{
+    "type": "object",
+    "properties": {
+        "limit": {
+            "required": false,
+            "type": "string"
+        },
+        "nextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "endTime": {
+                    "description": "The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.",
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "filterPattern": {
+                    "description": "<p>The filter pattern to use. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html\">Filter and Pattern Syntax</a>.</p> <p>If not provided, all the events are matched.</p>",
+                    "maxLength": 1024,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "interleaved": {
+                    "description": "If the value is true, the operation makes a best effort to provide responses that contain events from multiple log streams within the log group, interleaved in a single response. If the value is false, all the matched log events in the first log stream are searched first, then those in the next log stream, and so on. The default is false.",
+                    "type": "boolean"
+                },
+                "limit": {
+                    "description": "The maximum number of events to return. The default is 10,000 events.",
+                    "maximum": 10000,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "logGroupName": {
+                    "description": "The name of the log group to search.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+                    "type": "string"
+                },
+                "logStreamNamePrefix": {
+                    "description": "<p>Filters the results to include only events from log streams that have names starting with this prefix.</p> <p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, but the value for <code>logStreamNamePrefix</code> does not match any log stream names specified in <code>logStreamNames</code>, the action returns an <code>InvalidParameterException</code> error.</p>",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "pattern": "[^:*]*",
+                    "type": "string"
+                },
+                "logStreamNames": {
+                    "description": "<p>Filters the results to only logs from the log streams in this list.</p> <p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, the action returns an <code>InvalidParameterException</code> error.</p>",
+                    "items": {
+                        "maxLength": 512,
+                        "minLength": 1,
+                        "pattern": "[^:*]*",
+                        "type": "string"
+                    },
+                    "maxItems": 100,
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "nextToken": {
+                    "description": "The token for the next set of events to return. (You received this token from a previous call.)",
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.",
+                    "minimum": 0,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "logGroupName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

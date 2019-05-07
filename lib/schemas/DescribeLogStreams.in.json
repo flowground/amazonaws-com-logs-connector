@@ -1,0 +1,86 @@
+{
+    "type": "object",
+    "properties": {
+        "limit": {
+            "required": false,
+            "type": "string"
+        },
+        "nextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "descending": {
+                    "description": "If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.",
+                    "type": "boolean"
+                },
+                "limit": {
+                    "description": "The maximum number of items returned. If you don't specify a value, the default is up to 50 items.",
+                    "maximum": 50,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "logGroupName": {
+                    "description": "The name of the log group.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+                    "type": "string"
+                },
+                "logStreamNamePrefix": {
+                    "description": "<p>The prefix to match.</p> <p>If <code>orderBy</code> is <code>LastEventTime</code>,you cannot specify this parameter.</p>",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "pattern": "[^:*]*",
+                    "type": "string"
+                },
+                "nextToken": {
+                    "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "orderBy": {
+                    "description": "<p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p> <p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p> <p>lastEventTimestamp represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTimeStamp updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.</p>",
+                    "enum": [
+                        "LogStreamName",
+                        "LastEventTime"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "logGroupName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,111 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "filterName": {
+                    "description": "A name for the metric filter.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "pattern": "[^:*]*",
+                    "type": "string"
+                },
+                "filterPattern": {
+                    "description": "A filter pattern for extracting metric data out of ingested log events.",
+                    "maxLength": 1024,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "logGroupName": {
+                    "description": "The name of the log group.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+                    "type": "string"
+                },
+                "metricTransformations": {
+                    "description": "A collection of information that defines how metric data gets emitted.",
+                    "items": {
+                        "description": "Indicates how to transform ingested log eventsto metric data in a CloudWatch metric.",
+                        "properties": {
+                            "defaultValue": {
+                                "description": "(Optional) The value to emit when a filter pattern does not match a log event. This value can be null.",
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "metricName": {
+                                "description": "The name of the CloudWatch metric.",
+                                "maxLength": 255,
+                                "pattern": "[^:*$]*",
+                                "type": "string"
+                            },
+                            "metricNamespace": {
+                                "description": "The namespace of the CloudWatch metric.",
+                                "maxLength": 255,
+                                "pattern": "[^:*$]*",
+                                "type": "string"
+                            },
+                            "metricValue": {
+                                "description": "The value to publish to the CloudWatch metric when a filter pattern matches a log event.",
+                                "maxLength": 100,
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "metricName",
+                            "metricNamespace",
+                            "metricValue"
+                        ],
+                        "type": "object"
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "logGroupName",
+                "filterName",
+                "filterPattern",
+                "metricTransformations"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

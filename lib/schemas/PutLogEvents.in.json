@@ -1,0 +1,96 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "logEvents": {
+                    "description": "The log events.",
+                    "items": {
+                        "description": "Represents a log event, which is a record of activity that was recorded by the application or resource being monitored.",
+                        "properties": {
+                            "message": {
+                                "description": "The raw event message.",
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "timestamp": {
+                                "description": "The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.",
+                                "minimum": 0,
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "timestamp",
+                            "message"
+                        ],
+                        "type": "object"
+                    },
+                    "maxItems": 10000,
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "logGroupName": {
+                    "description": "The name of the log group.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+                    "type": "string"
+                },
+                "logStreamName": {
+                    "description": "The name of the log stream.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "pattern": "[^:*]*",
+                    "type": "string"
+                },
+                "sequenceToken": {
+                    "description": "The sequence token obtained from the response of the previous <code>PutLogEvents</code> call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.",
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "logGroupName",
+                "logStreamName",
+                "logEvents"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "destinationName": {
+                    "description": "A name for the destination.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "pattern": "[^:*]*",
+                    "type": "string"
+                },
+                "roleArn": {
+                    "description": "The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis PutRecord operation on the destination stream.",
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "targetArn": {
+                    "description": "The ARN of an Amazon Kinesis stream to which to deliver matching log events.",
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "destinationName",
+                "targetArn",
+                "roleArn"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

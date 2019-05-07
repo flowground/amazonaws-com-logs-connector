@@ -1,0 +1,92 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "destination": {
+                    "description": "The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "destinationPrefix": {
+                    "description": "The prefix used as the start of the key for every object exported. If you don't specify a value, the default is <code>exportedlogs</code>.",
+                    "type": "string"
+                },
+                "from": {
+                    "description": "The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.",
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "logGroupName": {
+                    "description": "The name of the log group.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+                    "type": "string"
+                },
+                "logStreamNamePrefix": {
+                    "description": "Export only log streams that match the provided prefix. If you don't specify a value, no prefix filter is applied.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "pattern": "[^:*]*",
+                    "type": "string"
+                },
+                "taskName": {
+                    "description": "The name of the export task.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "to": {
+                    "description": "The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.",
+                    "minimum": 0,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "logGroupName",
+                "from",
+                "to",
+                "destination"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
