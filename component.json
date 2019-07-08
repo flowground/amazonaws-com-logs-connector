@@ -1,6 +1,6 @@
 {
     "title": "Amazon CloudWatch Logs",
-    "description": "<p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrail, or other sources. You can then retrieve the associated log data from CloudWatch Logs using the CloudWatch console, CloudWatch Logs commands in the AWS CLI, CloudWatch Logs API, or CloudWatch Logs SDK.</p> <p>You can use CloudWatch Logs to:</p> <ul> <li> <p> <b>Monitor logs from EC2 instances in real-time</b>: You can use CloudWatch Logs to monitor applications and systems using log data. For example, CloudWatch Logs can track the number of errors that occur in your application logs and send you a notification whenever the rate of errors exceeds a threshold that you specify. CloudWatch Logs uses your log data for monitoring; so, no code changes are required. For example, you can monitor application logs for specific literal terms (such as \"NullReferenceException\") or count the number of occurrences of a literal term at a particular position in log data (such as \"404\" status codes in an Apache access log). When the term you are searching for is found, CloudWatch Logs reports the data to a CloudWatch metric that you specify.</p> </li> <li> <p> <b>Monitor AWS CloudTrail logged events</b>: You can create alarms in CloudWatch and receive notifications of particular API activity as captured by CloudTrail and use the notification to perform troubleshooting.</p> </li> <li> <p> <b>Archive log data</b>: You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events older than this setting are automatically deleted. The CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.</p> </li> </ul>",
+    "description": "You can use Amazon CloudWatch Logs to monitor, store, and access your log files\nfrom Amazon EC2 instances, AWS CloudTrail, or other sources. You can then\nretrieve the associated log data from CloudWatch Logs using the CloudWatch\nconsole, CloudWatch Logs commands in the AWS CLI, CloudWatch Logs API, or\nCloudWatch Logs SDK.\n\nYou can use CloudWatch Logs to:\n\n *   Monitor logs from EC2 instances in real-time: You can use CloudWatch Logs to\n   monitor applications and systems using log data. For example, CloudWatch Logs\n   can track the number of errors that occur in your application logs and send\n   you a notification whenever the rate of errors exceeds a threshold that you\n   specify. CloudWatch Logs uses your log data for monitoring; so, no code\n   changes are required. For example, you can monitor application logs for\n   specific literal terms (such as \"NullReferenceException\") or count the number\n   of occurrences of a literal term at a particular position in log data (such\n   as \"404\" status codes in an Apache access log). When the term you are\n   searching for is found, CloudWatch Logs reports the data to a CloudWatch\n   metric that you specify.\n   \n   \n *   Monitor AWS CloudTrail logged events: You can create alarms in CloudWatch\n   and receive notifications of particular API activity as captured by\n   CloudTrail and use the notification to perform troubleshooting.\n   \n   \n *   Archive log data: You can use CloudWatch Logs to store your log data in\n   highly durable storage. You can change the log retention setting so that any\n   log events older than this setting are automatically deleted. The CloudWatch\n   Logs agent makes it easy to quickly send both rotated and non-rotated log\n   data off of a host and into the log service. You can then access the raw log\n   data when you need it.",
     "docsUrl": "https://docs.aws.amazon.com/logs/",
     "url": "https://api.apis.guru/v2/specs/amazonaws.com/logs/2014-03-28/swagger.json",
     "envVars": {},
@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,8 +38,8 @@
     "actions": {
         "AssociateKmsKey": {
             "main": "./lib/actions/AssociateKmsKey.js",
-            "title": "<p>Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.</p> <p>Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK. After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p> <p>Note that it can take up to 5 minutes for this operation to take effect.</p> <p>If you attempt to associate a CMK with a log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>",
-            "description": "<p>Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.</p> <p>Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK. After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p> <p>Note that it can take up to 5 minutes for this operation to take effect.</p> <p>If you attempt to associate a CMK with a log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>",
+            "title": "AssociateKmsKey",
+            "description": "Associates the specified AWS Key Management Service (AWS KMS) customer master\nkey (CMK) with the specified log group.\n\nAssociating an AWS KMS CMK with a log group overrides any existing associations\nbetween the log group and a CMK. After a CMK is associated with a log group, all\nnewly ingested data for the log group is encrypted using the CMK. This\nassociation is stored as long as the data encrypted with the CMK is still within\nAmazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data\nwhenever it is requested.\n\nNote that it can take up to 5 minutes for this operation to take effect.\n\nIf you attempt to associate a CMK with a log group but the CMK does not exist or\nthe CMK is disabled, you will receive an InvalidParameterException error.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -55,8 +55,8 @@
         },
         "CancelExportTask": {
             "main": "./lib/actions/CancelExportTask.js",
-            "title": "<p>Cancels the specified export task.</p> <p>The task must be in the <code>PENDING</code> or <code>RUNNING</code> state.</p>",
-            "description": "<p>Cancels the specified export task.</p> <p>The task must be in the <code>PENDING</code> or <code>RUNNING</code> state.</p>",
+            "title": "CancelExportTask",
+            "description": "Cancels the specified export task.\n\nThe task must be in the PENDING or RUNNING state.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -72,8 +72,8 @@
         },
         "CreateExportTask": {
             "main": "./lib/actions/CreateExportTask.js",
-            "title": "<p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p> <p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a>CancelExportTask</a>.</p> <p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p>",
-            "description": "<p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p> <p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a>CancelExportTask</a>.</p> <p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p>",
+            "title": "CreateExportTask",
+            "description": "Creates an export task, which allows you to efficiently export data from a log\ngroup to an Amazon S3 bucket.\n\nThis is an asynchronous call. If all the required information is provided, this\noperation initiates an export task and responds with the ID of the task. After\nthe task has started, you can use DescribeExportTasks to get the status of the\nexport task. Each account can only have one active (RUNNING or PENDING) export\ntask at a time. To cancel an export task, use CancelExportTask.\n\nYou can export logs from multiple log groups or multiple time ranges to the same\nS3 bucket. To separate out log data for each export task, you can specify a\nprefix to be used as the Amazon S3 key prefix for all exported objects.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -89,8 +89,8 @@
         },
         "CreateLogGroup": {
             "main": "./lib/actions/CreateLogGroup.js",
-            "title": "<p>Creates a log group with the specified name.</p> <p>You can create up to 5000 log groups per account.</p> <p>You must use the following guidelines when naming a log group:</p> <ul> <li> <p>Log group names must be unique within a region for an AWS account.</p> </li> <li> <p>Log group names can be between 1 and 512 characters long.</p> </li> <li> <p>Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).</p> </li> </ul> <p>If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p> <p>If you attempt to associate a CMK with the log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>",
-            "description": "<p>Creates a log group with the specified name.</p> <p>You can create up to 5000 log groups per account.</p> <p>You must use the following guidelines when naming a log group:</p> <ul> <li> <p>Log group names must be unique within a region for an AWS account.</p> </li> <li> <p>Log group names can be between 1 and 512 characters long.</p> </li> <li> <p>Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).</p> </li> </ul> <p>If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p> <p>If you attempt to associate a CMK with the log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>",
+            "title": "CreateLogGroup",
+            "description": "Creates a log group with the specified name.\n\nYou can create up to 5000 log groups per account.\n\nYou must use the following guidelines when naming a log group:\n\n *  Log group names must be unique within a region for an AWS account.\n   \n   \n *  Log group names can be between 1 and 512 characters long.\n   \n   \n *  Log group names consist of the following characters: a-z, A-Z, 0-9, '_'\n   (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).\n   \n   \n\nIf you associate a AWS Key Management Service (AWS KMS) customer master key\n(CMK) with the log group, ingested data is encrypted using the CMK. This\nassociation is stored as long as the data encrypted with the CMK is still within\nAmazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data\nwhenever it is requested.\n\nIf you attempt to associate a CMK with the log group but the CMK does not exist\nor the CMK is disabled, you will receive an InvalidParameterException error.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -106,8 +106,8 @@
         },
         "CreateLogStream": {
             "main": "./lib/actions/CreateLogStream.js",
-            "title": "<p>Creates a log stream for the specified log group.</p> <p>There is no limit on the number of log streams that you can create for a log group.</p> <p>You must use the following guidelines when naming a log stream:</p> <ul> <li> <p>Log stream names must be unique within the log group.</p> </li> <li> <p>Log stream names can be between 1 and 512 characters long.</p> </li> <li> <p>The ':' (colon) and '*' (asterisk) characters are not allowed.</p> </li> </ul>",
-            "description": "<p>Creates a log stream for the specified log group.</p> <p>There is no limit on the number of log streams that you can create for a log group.</p> <p>You must use the following guidelines when naming a log stream:</p> <ul> <li> <p>Log stream names must be unique within the log group.</p> </li> <li> <p>Log stream names can be between 1 and 512 characters long.</p> </li> <li> <p>The ':' (colon) and '*' (asterisk) characters are not allowed.</p> </li> </ul>",
+            "title": "CreateLogStream",
+            "description": "Creates a log stream for the specified log group.\n\nThere is no limit on the number of log streams that you can create for a log\ngroup.\n\nYou must use the following guidelines when naming a log stream:\n\n *  Log stream names must be unique within the log group.\n   \n   \n *  Log stream names can be between 1 and 512 characters long.\n   \n   \n *  The ':' (colon) and '*' (asterisk) characters are not allowed.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -123,7 +123,7 @@
         },
         "DeleteDestination": {
             "main": "./lib/actions/DeleteDestination.js",
-            "title": "Deletes the specified destination, and eventually disables all the subscription filters that publish to it. This operation does not delete the physical resource encapsulated by the destination.",
+            "title": "DeleteDestination",
             "description": "Deletes the specified destination, and eventually disables all the subscription filters that publish to it. This operation does not delete the physical resource encapsulated by the destination.",
             "fields": {
                 "verbose": {
@@ -140,7 +140,7 @@
         },
         "DeleteLogGroup": {
             "main": "./lib/actions/DeleteLogGroup.js",
-            "title": "Deletes the specified log group and permanently deletes all the archived log events associated with the log group.",
+            "title": "DeleteLogGroup",
             "description": "Deletes the specified log group and permanently deletes all the archived log events associated with the log group.",
             "fields": {
                 "verbose": {
@@ -157,7 +157,7 @@
         },
         "DeleteLogStream": {
             "main": "./lib/actions/DeleteLogStream.js",
-            "title": "Deletes the specified log stream and permanently deletes all the archived log events associated with the log stream.",
+            "title": "DeleteLogStream",
             "description": "Deletes the specified log stream and permanently deletes all the archived log events associated with the log stream.",
             "fields": {
                 "verbose": {
@@ -174,7 +174,7 @@
         },
         "DeleteMetricFilter": {
             "main": "./lib/actions/DeleteMetricFilter.js",
-            "title": "Deletes the specified metric filter.",
+            "title": "DeleteMetricFilter",
             "description": "Deletes the specified metric filter.",
             "fields": {
                 "verbose": {
@@ -191,7 +191,7 @@
         },
         "DeleteResourcePolicy": {
             "main": "./lib/actions/DeleteResourcePolicy.js",
-            "title": "Deletes a resource policy from this account. This revokes the access of the identities in that policy to put log events to this account.",
+            "title": "DeleteResourcePolicy",
             "description": "Deletes a resource policy from this account. This revokes the access of the identities in that policy to put log events to this account.",
             "fields": {
                 "verbose": {
@@ -208,8 +208,8 @@
         },
         "DeleteRetentionPolicy": {
             "main": "./lib/actions/DeleteRetentionPolicy.js",
-            "title": "<p>Deletes the specified retention policy.</p> <p>Log events do not expire if they belong to log groups without a retention policy.</p>",
-            "description": "<p>Deletes the specified retention policy.</p> <p>Log events do not expire if they belong to log groups without a retention policy.</p>",
+            "title": "DeleteRetentionPolicy",
+            "description": "Deletes the specified retention policy.\n\nLog events do not expire if they belong to log groups without a retention\npolicy.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -225,7 +225,7 @@
         },
         "DeleteSubscriptionFilter": {
             "main": "./lib/actions/DeleteSubscriptionFilter.js",
-            "title": "Deletes the specified subscription filter.",
+            "title": "DeleteSubscriptionFilter",
             "description": "Deletes the specified subscription filter.",
             "fields": {
                 "verbose": {
@@ -242,7 +242,7 @@
         },
         "DescribeDestinations": {
             "main": "./lib/actions/DescribeDestinations.js",
-            "title": "Lists all your destinations. The results are ASCII-sorted by destination name.",
+            "title": "DescribeDestinations",
             "description": "Lists all your destinations. The results are ASCII-sorted by destination name.",
             "fields": {
                 "verbose": {
@@ -259,7 +259,7 @@
         },
         "DescribeExportTasks": {
             "main": "./lib/actions/DescribeExportTasks.js",
-            "title": "Lists the specified export tasks. You can list all your export tasks or filter the results based on task ID or task status.",
+            "title": "DescribeExportTasks",
             "description": "Lists the specified export tasks. You can list all your export tasks or filter the results based on task ID or task status.",
             "fields": {
                 "verbose": {
@@ -276,7 +276,7 @@
         },
         "DescribeLogGroups": {
             "main": "./lib/actions/DescribeLogGroups.js",
-            "title": "Lists the specified log groups. You can list all your log groups or filter the results by prefix. The results are ASCII-sorted by log group name.",
+            "title": "DescribeLogGroups",
             "description": "Lists the specified log groups. You can list all your log groups or filter the results by prefix. The results are ASCII-sorted by log group name.",
             "fields": {
                 "verbose": {
@@ -293,8 +293,8 @@
         },
         "DescribeLogStreams": {
             "main": "./lib/actions/DescribeLogStreams.js",
-            "title": "<p>Lists the log streams for the specified log group. You can list all the log streams or filter the results by prefix. You can also control how the results are ordered.</p> <p>This operation has a limit of five transactions per second, after which transactions are throttled.</p>",
-            "description": "<p>Lists the log streams for the specified log group. You can list all the log streams or filter the results by prefix. You can also control how the results are ordered.</p> <p>This operation has a limit of five transactions per second, after which transactions are throttled.</p>",
+            "title": "DescribeLogStreams",
+            "description": "Lists the log streams for the specified log group. You can list all the log\nstreams or filter the results by prefix. You can also control how the results\nare ordered.\n\nThis operation has a limit of five transactions per second, after which\ntransactions are throttled.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -310,7 +310,7 @@
         },
         "DescribeMetricFilters": {
             "main": "./lib/actions/DescribeMetricFilters.js",
-            "title": "Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, or metric namespace. The results are ASCII-sorted by filter name.",
+            "title": "DescribeMetricFilters",
             "description": "Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, or metric namespace. The results are ASCII-sorted by filter name.",
             "fields": {
                 "verbose": {
@@ -327,7 +327,7 @@
         },
         "DescribeQueries": {
             "main": "./lib/actions/DescribeQueries.js",
-            "title": "Returns a list of CloudWatch Logs Insights queries that are scheduled, executing, or have been executed recently in this account. You can request all queries, or limit it to queries of a specific log group or queries with a certain status.",
+            "title": "DescribeQueries",
             "description": "Returns a list of CloudWatch Logs Insights queries that are scheduled, executing, or have been executed recently in this account. You can request all queries, or limit it to queries of a specific log group or queries with a certain status.",
             "fields": {
                 "verbose": {
@@ -344,7 +344,7 @@
         },
         "DescribeResourcePolicies": {
             "main": "./lib/actions/DescribeResourcePolicies.js",
-            "title": "Lists the resource policies in this account.",
+            "title": "DescribeResourcePolicies",
             "description": "Lists the resource policies in this account.",
             "fields": {
                 "verbose": {
@@ -361,7 +361,7 @@
         },
         "DescribeSubscriptionFilters": {
             "main": "./lib/actions/DescribeSubscriptionFilters.js",
-            "title": "Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix. The results are ASCII-sorted by filter name.",
+            "title": "DescribeSubscriptionFilters",
             "description": "Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix. The results are ASCII-sorted by filter name.",
             "fields": {
                 "verbose": {
@@ -378,8 +378,8 @@
         },
         "DisassociateKmsKey": {
             "main": "./lib/actions/DisassociateKmsKey.js",
-            "title": "<p>Disassociates the associated AWS Key Management Service (AWS KMS) customer master key (CMK) from the specified log group.</p> <p>After the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested.</p> <p>Note that it can take up to 5 minutes for this operation to take effect.</p>",
-            "description": "<p>Disassociates the associated AWS Key Management Service (AWS KMS) customer master key (CMK) from the specified log group.</p> <p>After the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested.</p> <p>Note that it can take up to 5 minutes for this operation to take effect.</p>",
+            "title": "DisassociateKmsKey",
+            "description": "Disassociates the associated AWS Key Management Service (AWS KMS) customer\nmaster key (CMK) from the specified log group.\n\nAfter the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs\nstops encrypting newly ingested data for the log group. All previously ingested\ndata remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK\nwhenever the encrypted data is requested.\n\nNote that it can take up to 5 minutes for this operation to take effect.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -395,8 +395,8 @@
         },
         "FilterLogEvents": {
             "main": "./lib/actions/FilterLogEvents.js",
-            "title": "<p>Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.</p> <p>By default, this operation returns as many log events as can fit in 1 MB (up to 10,000 log events), or all the events found within the time range that you specify. If the results include a token, then there are more log events available, and you can get additional results by specifying the token in a subsequent call.</p>",
-            "description": "<p>Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.</p> <p>By default, this operation returns as many log events as can fit in 1 MB (up to 10,000 log events), or all the events found within the time range that you specify. If the results include a token, then there are more log events available, and you can get additional results by specifying the token in a subsequent call.</p>",
+            "title": "FilterLogEvents",
+            "description": "Lists log events from the specified log group. You can list all the log events\nor filter the results using a filter pattern, a time range, and the name of the\nlog stream.\n\nBy default, this operation returns as many log events as can fit in 1 MB (up to\n10,000 log events), or all the events found within the time range that you\nspecify. If the results include a token, then there are more log events\navailable, and you can get additional results by specifying the token in a\nsubsequent call.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -412,8 +412,8 @@
         },
         "GetLogEvents": {
             "main": "./lib/actions/GetLogEvents.js",
-            "title": "<p>Lists log events from the specified log stream. You can list all the log events or filter using a time range.</p> <p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events). You can get additional log events by specifying one of the tokens in a subsequent call.</p>",
-            "description": "<p>Lists log events from the specified log stream. You can list all the log events or filter using a time range.</p> <p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events). You can get additional log events by specifying one of the tokens in a subsequent call.</p>",
+            "title": "GetLogEvents",
+            "description": "Lists log events from the specified log stream. You can list all the log events\nor filter using a time range.\n\nBy default, this operation returns as many log events as can fit in a response\nsize of 1MB (up to 10,000 log events). You can get additional log events by\nspecifying one of the tokens in a subsequent call.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -429,8 +429,8 @@
         },
         "GetLogGroupFields": {
             "main": "./lib/actions/GetLogGroupFields.js",
-            "title": "<p>Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events that contain each field. The search is limited to a time period that you specify.</p> <p>In the results, fields that start with @ are fields generated by CloudWatch Logs. For example, <code>@timestamp</code> is the timestamp of each log event.</p> <p>The response results are sorted by the frequency percentage, starting with the highest percentage.</p>",
-            "description": "<p>Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events that contain each field. The search is limited to a time period that you specify.</p> <p>In the results, fields that start with @ are fields generated by CloudWatch Logs. For example, <code>@timestamp</code> is the timestamp of each log event.</p> <p>The response results are sorted by the frequency percentage, starting with the highest percentage.</p>",
+            "title": "GetLogGroupFields",
+            "description": "Returns a list of the fields that are included in log events in the specified\nlog group, along with the percentage of log events that contain each field. The\nsearch is limited to a time period that you specify.\n\nIn the results, fields that start with @ are fields generated by CloudWatch\nLogs. For example, @timestamp is the timestamp of each log event.\n\nThe response results are sorted by the frequency percentage, starting with the\nhighest percentage.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -446,8 +446,8 @@
         },
         "GetLogRecord": {
             "main": "./lib/actions/GetLogRecord.js",
-            "title": "<p>Retrieves all the fields and values of a single log event. All fields are retrieved, even if the original query that produced the <code>logRecordPointer</code> retrieved only a subset of fields. Fields are returned as field name/field value pairs.</p> <p>Additionally, the entire unparsed log event is returned within <code>@message</code>.</p>",
-            "description": "<p>Retrieves all the fields and values of a single log event. All fields are retrieved, even if the original query that produced the <code>logRecordPointer</code> retrieved only a subset of fields. Fields are returned as field name/field value pairs.</p> <p>Additionally, the entire unparsed log event is returned within <code>@message</code>.</p>",
+            "title": "GetLogRecord",
+            "description": "Retrieves all the fields and values of a single log event. All fields are\nretrieved, even if the original query that produced the logRecordPointer \nretrieved only a subset of fields. Fields are returned as field name/field value\npairs.\n\nAdditionally, the entire unparsed log event is returned within @message.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -463,8 +463,8 @@
         },
         "GetQueryResults": {
             "main": "./lib/actions/GetQueryResults.js",
-            "title": "<p>Returns the results from the specified query. If the query is in progress, partial results of that current execution are returned. Only the fields requested in the query are returned.</p> <p> <code>GetQueryResults</code> does not start a query execution. To run a query, use .</p>",
-            "description": "<p>Returns the results from the specified query. If the query is in progress, partial results of that current execution are returned. Only the fields requested in the query are returned.</p> <p> <code>GetQueryResults</code> does not start a query execution. To run a query, use .</p>",
+            "title": "GetQueryResults",
+            "description": "Returns the results from the specified query. If the query is in progress,\npartial results of that current execution are returned. Only the fields\nrequested in the query are returned.\n\n GetQueryResults does not start a query execution. To run a query, use .",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -480,7 +480,7 @@
         },
         "ListTagsLogGroup": {
             "main": "./lib/actions/ListTagsLogGroup.js",
-            "title": "Lists the tags for the specified log group.",
+            "title": "ListTagsLogGroup",
             "description": "Lists the tags for the specified log group.",
             "fields": {
                 "verbose": {
@@ -497,8 +497,8 @@
         },
         "PutDestination": {
             "main": "./lib/actions/PutDestination.js",
-            "title": "<p>Creates or updates a destination. A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <a>PutLogEvents</a>. Currently, the only supported physical resource is a Kinesis stream belonging to the same account as the destination.</p> <p>Through an access policy, a destination controls what is written to its Kinesis stream. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>",
-            "description": "<p>Creates or updates a destination. A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <a>PutLogEvents</a>. Currently, the only supported physical resource is a Kinesis stream belonging to the same account as the destination.</p> <p>Through an access policy, a destination controls what is written to its Kinesis stream. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>",
+            "title": "PutDestination",
+            "description": "Creates or updates a destination. A destination encapsulates a physical resource\n(such as an Amazon Kinesis stream) and enables you to subscribe to a real-time\nstream of log events for a different account, ingested using PutLogEvents.\nCurrently, the only supported physical resource is a Kinesis stream belonging to\nthe same account as the destination.\n\nThrough an access policy, a destination controls what is written to its Kinesis\nstream. By default, PutDestination does not set any access policy with the\ndestination, which means a cross-account user cannot call PutSubscriptionFilter \nagainst this destination. To enable this, the destination owner must call \nPutDestinationPolicy after PutDestination.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -514,7 +514,7 @@
         },
         "PutDestinationPolicy": {
             "main": "./lib/actions/PutDestinationPolicy.js",
-            "title": "Creates or updates an access policy associated with an existing destination. An access policy is an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html\">IAM policy document</a> that is used to authorize claims to register a subscription filter against a given destination.",
+            "title": "PutDestinationPolicy",
             "description": "Creates or updates an access policy associated with an existing destination. An access policy is an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html\">IAM policy document</a> that is used to authorize claims to register a subscription filter against a given destination.",
             "fields": {
                 "verbose": {
@@ -531,8 +531,8 @@
         },
         "PutLogEvents": {
             "main": "./lib/actions/PutLogEvents.js",
-            "title": "<p>Uploads a batch of log events to the specified log stream.</p> <p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p> <p>The batch of events must satisfy the following constraints:</p> <ul> <li> <p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p> </li> <li> <p>None of the log events in the batch can be more than 2 hours in the future.</p> </li> <li> <p>None of the log events in the batch can be older than 14 days or the retention period of the log group.</p> </li> <li> <p>The log events in the batch must be in chronological ordered by their timestamp. The timestamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p> </li> <li> <p>The maximum number of log events in a batch is 10,000.</p> </li> <li> <p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p> </li> </ul> <p>If a call to PutLogEvents returns \"UnrecognizedClientException\" the most likely cause is an invalid AWS access key ID or secret key. </p>",
-            "description": "<p>Uploads a batch of log events to the specified log stream.</p> <p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p> <p>The batch of events must satisfy the following constraints:</p> <ul> <li> <p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p> </li> <li> <p>None of the log events in the batch can be more than 2 hours in the future.</p> </li> <li> <p>None of the log events in the batch can be older than 14 days or the retention period of the log group.</p> </li> <li> <p>The log events in the batch must be in chronological ordered by their timestamp. The timestamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p> </li> <li> <p>The maximum number of log events in a batch is 10,000.</p> </li> <li> <p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p> </li> </ul> <p>If a call to PutLogEvents returns \"UnrecognizedClientException\" the most likely cause is an invalid AWS access key ID or secret key. </p>",
+            "title": "PutLogEvents",
+            "description": "Uploads a batch of log events to the specified log stream.\n\nYou must include the sequence token obtained from the response of the previous\ncall. An upload in a newly created log stream does not require a sequence token.\nYou can also get the sequence token using DescribeLogStreams. If you call \nPutLogEvents twice within a narrow time period using the same value for \nsequenceToken, both calls may be successful, or one may be rejected.\n\nThe batch of events must satisfy the following constraints:\n\n *  The maximum batch size is 1,048,576 bytes, and this size is calculated as\n   the sum of all event messages in UTF-8, plus 26 bytes for each log event.\n   \n   \n *  None of the log events in the batch can be more than 2 hours in the future.\n   \n   \n *  None of the log events in the batch can be older than 14 days or the\n   retention period of the log group.\n   \n   \n *  The log events in the batch must be in chronological ordered by their\n   timestamp. The timestamp is the time the event occurred, expressed as the\n   number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for\n   PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET\n   format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) \n   \n   \n *  The maximum number of log events in a batch is 10,000.\n   \n   \n *  A batch of log events in a single request cannot span more than 24 hours.\n   Otherwise, the operation fails.\n   \n   \n\nIf a call to PutLogEvents returns \"UnrecognizedClientException\" the most likely\ncause is an invalid AWS access key ID or secret key.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -548,8 +548,8 @@
         },
         "PutMetricFilter": {
             "main": "./lib/actions/PutMetricFilter.js",
-            "title": "<p>Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through <a>PutLogEvents</a>.</p> <p>The maximum number of metric filters that can be associated with a log group is 100.</p>",
-            "description": "<p>Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through <a>PutLogEvents</a>.</p> <p>The maximum number of metric filters that can be associated with a log group is 100.</p>",
+            "title": "PutMetricFilter",
+            "description": "Creates or updates a metric filter and associates it with the specified log\ngroup. Metric filters allow you to configure rules to extract metric data from\nlog events ingested through PutLogEvents.\n\nThe maximum number of metric filters that can be associated with a log group is\n100.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -565,7 +565,7 @@
         },
         "PutResourcePolicy": {
             "main": "./lib/actions/PutResourcePolicy.js",
-            "title": "Creates or updates a resource policy allowing other AWS services to put log events to this account, such as Amazon Route 53. An account can have up to 10 resource policies per region.",
+            "title": "PutResourcePolicy",
             "description": "Creates or updates a resource policy allowing other AWS services to put log events to this account, such as Amazon Route 53. An account can have up to 10 resource policies per region.",
             "fields": {
                 "verbose": {
@@ -582,7 +582,7 @@
         },
         "PutRetentionPolicy": {
             "main": "./lib/actions/PutRetentionPolicy.js",
-            "title": "Sets the retention of the specified log group. A retention policy allows you to configure the number of days for which to retain log events in the specified log group.",
+            "title": "PutRetentionPolicy",
             "description": "Sets the retention of the specified log group. A retention policy allows you to configure the number of days for which to retain log events in the specified log group.",
             "fields": {
                 "verbose": {
@@ -599,8 +599,8 @@
         },
         "PutSubscriptionFilter": {
             "main": "./lib/actions/PutSubscriptionFilter.js",
-            "title": "<p>Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through <a>PutLogEvents</a> and have them delivered to a specific destination. Currently, the supported destinations are:</p> <ul> <li> <p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p> </li> <li> <p>A logical destination that belongs to a different account, for cross-account delivery.</p> </li> <li> <p>An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p> </li> <li> <p>An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p> </li> </ul> <p>There can only be one subscription filter associated with a log group. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group.</p>",
-            "description": "<p>Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through <a>PutLogEvents</a> and have them delivered to a specific destination. Currently, the supported destinations are:</p> <ul> <li> <p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p> </li> <li> <p>A logical destination that belongs to a different account, for cross-account delivery.</p> </li> <li> <p>An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p> </li> <li> <p>An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p> </li> </ul> <p>There can only be one subscription filter associated with a log group. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group.</p>",
+            "title": "PutSubscriptionFilter",
+            "description": "Creates or updates a subscription filter and associates it with the specified\nlog group. Subscription filters allow you to subscribe to a real-time stream of\nlog events ingested through PutLogEvents and have them delivered to a specific\ndestination. Currently, the supported destinations are:\n\n *  An Amazon Kinesis stream belonging to the same account as the subscription\n   filter, for same-account delivery.\n   \n   \n *  A logical destination that belongs to a different account, for cross-account\n   delivery.\n   \n   \n *  An Amazon Kinesis Firehose delivery stream that belongs to the same account\n   as the subscription filter, for same-account delivery.\n   \n   \n *  An AWS Lambda function that belongs to the same account as the subscription\n   filter, for same-account delivery.\n   \n   \n\nThere can only be one subscription filter associated with a log group. If you\nare updating an existing filter, you must specify the correct name in filterName\n. Otherwise, the call fails because you cannot associate a second filter with a\nlog group.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -616,8 +616,8 @@
         },
         "StartQuery": {
             "main": "./lib/actions/StartQuery.js",
-            "title": "<p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query, and the query string to use.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html\">CloudWatch Logs Insights Query Syntax</a>.</p>",
-            "description": "<p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query, and the query string to use.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html\">CloudWatch Logs Insights Query Syntax</a>.</p>",
+            "title": "StartQuery",
+            "description": "Schedules a query of a log group using CloudWatch Logs Insights. You specify the\nlog group and time range to query, and the query string to use.\n\nFor more information, see CloudWatch Logs Insights Query Syntax\n[https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html].",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -633,7 +633,7 @@
         },
         "StopQuery": {
             "main": "./lib/actions/StopQuery.js",
-            "title": "Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation returns an error indicating that the specified query is not running.",
+            "title": "StopQuery",
             "description": "Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation returns an error indicating that the specified query is not running.",
             "fields": {
                 "verbose": {
@@ -650,8 +650,8 @@
         },
         "TagLogGroup": {
             "main": "./lib/actions/TagLogGroup.js",
-            "title": "<p>Adds or updates the specified tags for the specified log group.</p> <p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html\">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>",
-            "description": "<p>Adds or updates the specified tags for the specified log group.</p> <p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.</p> <p>For more information about tags, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html\">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>",
+            "title": "TagLogGroup",
+            "description": "Adds or updates the specified tags for the specified log group.\n\nTo list the tags for a log group, use ListTagsLogGroup. To remove tags, use \nUntagLogGroup.\n\nFor more information about tags, see Tag Log Groups in Amazon CloudWatch Logs\n[https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html] \nin the Amazon CloudWatch Logs User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -667,7 +667,7 @@
         },
         "TestMetricFilter": {
             "main": "./lib/actions/TestMetricFilter.js",
-            "title": "Tests the filter pattern of a metric filter against a sample of log event messages. You can use this operation to validate the correctness of a metric filter pattern.",
+            "title": "TestMetricFilter",
             "description": "Tests the filter pattern of a metric filter against a sample of log event messages. You can use this operation to validate the correctness of a metric filter pattern.",
             "fields": {
                 "verbose": {
@@ -684,8 +684,8 @@
         },
         "UntagLogGroup": {
             "main": "./lib/actions/UntagLogGroup.js",
-            "title": "<p>Removes the specified tags from the specified log group.</p> <p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To add tags, use <a>UntagLogGroup</a>.</p>",
-            "description": "<p>Removes the specified tags from the specified log group.</p> <p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To add tags, use <a>UntagLogGroup</a>.</p>",
+            "title": "UntagLogGroup",
+            "description": "Removes the specified tags from the specified log group.\n\nTo list the tags for a log group, use ListTagsLogGroup. To add tags, use \nUntagLogGroup.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
